@@ -1,0 +1,19 @@
+<h1>Transactions by Category</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Total Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% transactionsByCategory.forEach(transaction => { %>
+        <tr>
+            <td><%= transaction._id %></td>
+            <td><%= transaction.totalAmount %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+<button onclick="window.location.href='/transaction'">Back to Transactions</button>
+

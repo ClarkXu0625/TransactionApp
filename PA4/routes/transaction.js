@@ -20,7 +20,7 @@ router.get('/transaction/',
     const sortBy = req.query.sortBy || 'date'; 
 
     // Set to ascending order if not specified
-    const sortOrder = req.query.sortOrder || 'asc';
+    const sortOrder = req.query.sortOrder || 'desc';
 
     const transactions = await Transaction.find({ userId: req.user._id })
       .sort({ [sortBy]: sortOrder === 'desc' ? -1 : 1 });

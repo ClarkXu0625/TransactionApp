@@ -3,10 +3,10 @@
 
 <div>
   <button onclick="window.location.href='/transaction/byCategory'">Group by Category</button>
-  <button onclick="window.location.href='/transaction?sortBy=description'">Sort by Description</button>
-  <button onclick="window.location.href='/transaction?sortBy=amount'">Sort by Amount</button>
+  <button onclick="window.location.href='/transaction?sortBy=description&sortOrder=asc'">Sort by Description</button>
+  <button onclick="window.location.href='/transaction?sortBy=amount&sortOrder=asc'">Sort by Amount</button>
   <button onclick="window.location.href='/transaction?sortBy=date&sortOrder=desc'">Sort by Date</button>
-  <button onclick="window.location.href='/transaction?sortBy=category'">Sort by Category</button>
+  <button onclick="window.location.href='/transaction?sortBy=category&sortOrder=asc'">Sort by Category</button>
 </div>
 
 
@@ -21,7 +21,7 @@
         <th>delete</th>
       </tr>
     </thead>
-    
+
     <tbody>
       <% transactions.forEach(transaction => { %>
       <tr>

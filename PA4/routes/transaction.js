@@ -15,11 +15,15 @@ isLoggedIn = (req, res, next) => {
 router.get('/transaction/', 
   isLoggedIn, 
   async (req, res, next) => {
-    const sortBy = req.query.sortBy || 'date';
-  const sortOrder = req.query.sortOrder || 'asc'; // Change this to 'asc'
+    // Retrieves the sortBy query parameter from the request (req.query.sortBy). 
+    // If the sortBy parameter is not provided, it defaults to 'date'.
+    const sortBy = req.query.sortBy || 'date'; 
 
-  const transactions = await Transaction.find({ userId: req.user._id })
-    .sort({ [sortBy]: sortOrder === 'desc' ? -1 : 1 });
+    // Set to ascending order if not specified
+    const sortOrder = req.query.sortOrder || 'asc';
+
+    const transactions = await Transaction.find({ userId: req.user._id })
+      .sort({ [sortBy]: sortOrder === 'desc' ? -1 : 1 });
 
   res.render('transaction/index', { transactions });
 });
